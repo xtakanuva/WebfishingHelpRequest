@@ -20,15 +20,15 @@ Brew_vending_shop.tscn # To replace the current vending_shop.tscn
 - shop_button_old.gd
 
 /ShopSetups/
-- bait_shop.tscn  # not what i'm looking for
-- boat_shop.tscn  # not what i'm looking for
-- general_shop.tscn  # not what i'm looking for
-- progression_shop.tscn  # not what i'm looking for
-- sell_shop.tscn  # not what i'm looking for
+- bait_shop.tscn  // not what i'm looking for
+- boat_shop.tscn  // not what i'm looking for
+- general_shop.tscn  // not what i'm looking for
+- progression_shop.tscn  // not what i'm looking for
+- sell_shop.tscn  // not what i'm looking for
 - shop_category.gd 
 - shop_setup.gd
-- spectral_shop.tscn  # not what i'm looking for
-- test_shop.tscn  # not what i'm looking for
+- spectral_shop.tscn  // not what i'm looking for
+- test_shop.tscn  // not what i'm looking for
 - vending_shop.tscn
 
 shop.gd
