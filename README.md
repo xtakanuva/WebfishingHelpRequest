@@ -9,6 +9,7 @@ Currently trying to update a vanilla shop with a new file of it. I already have 
 # New Files
 
 Brew_vending_shop.tscn # To replace the current vending_shop.tscn
+mod_button_item.gd # Replacement of original item
 
 # Walkthrough my thought process:
 
@@ -34,14 +35,39 @@ Brew_vending_shop.tscn # To replace the current vending_shop.tscn
 shop.gd
 shop.tscn
 
-### Since I've been wanting to update the vending_shop, I open it, which gives me the scene of buttons that the vending machine has.
+### Updating the vending_shop file
+Since I've been wanting to update the vending_shop, I open it, which gives me the scene of buttons that the vending machine has.
 ![image](https://github.com/user-attachments/assets/45df53c0-abdf-47ee-98f4-a7c4c327678d)
 
-### I duplicate this file and place it in my mod folder, renaming it brew_vending_shop, adding four new buttons for the new items:
+I duplicate this file and place it in my mod folder, renaming it brew_vending_shop, adding four new buttons for the new items:
 ![image](https://github.com/user-attachments/assets/92393bde-1c39-4fa1-a2d0-3c21187a4b18)
 
-### While looking at the shop buttons (also duplicated), I feel as though the only variable that changes is the item_id in the script variables.
-### This causes me to scroll down to the node and look at the script attached to it, button_item (res://Scenes/HUD/Shop/ShopButtons/button_item.gd)
+While looking at the shop buttons (also duplicated), I feel as though the only variable that changes is the item_id in the script variables.
+This causes me to scroll down to the node and look at the script attached to it, button_item (res://Scenes/HUD/Shop/ShopButtons/button_item.gd)
+
+button_item extends the ShopButton (A folder?). 
+![image](https://github.com/user-attachments/assets/83eed27d-ad0d-49c9-8108-a200f021213d)
+
+### Creating a new button_item
+
+I duplicated button_item and placed it into my mod folder, renaming it mod_button_item.
+This was to add the custom items as the original file pulls item data from the game's global item data (Globals.item_data). Duplicating the button_item and changing it would allow me to extend the original button_item and add a mod directory myself (ItemData.gd:res://mods/BodyBrew/ItemData.gd), which enables the ability to retrieve the information for mod-specific items. 
+
+I'm not trying to hard patch the main data, as I want it to be compatible with other things in the future, so hopefully doing this would allow that. Aka data independence, easier mod management.
+
+mod_button_item.gd
+![image](https://github.com/user-attachments/assets/7dd54058-dd0a-48bc-998c-03685ae8d960)
+
+ItemData.gd
+![image](https://github.com/user-attachments/assets/4b3da518-75a5-433a-9842-0c33e142b412)
+
+While I looked at the shop buttons in brew_vending_shop earlier, in the Node property there was a .gd file in the Script category, so I changed it from the original button_item.gd > mod_button_item.gd.
+
+I don't think there is any consequence to this as the new mod_button_item is an extension of the original button, so it should still be playing through the entire file.
+
+### shop.gd
+
+This is a part that I felt as though I had a lot of struggle with. 
 
 
 
@@ -49,18 +75,5 @@ shop.tscn
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Outstanding issues
 
