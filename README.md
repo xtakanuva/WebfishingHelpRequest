@@ -10,6 +10,7 @@ Currently trying to update a vanilla shop with a new file of it. I already have 
 
 Brew_vending_shop.tscn # To replace the current vending_shop.tscn
 mod_button_item.gd # Replacement of original item
+mod_shop.gd
 
 # Walkthrough my thought process:
 
@@ -67,7 +68,31 @@ I don't think there is any consequence to this as the new mod_button_item is an 
 
 ### shop.gd
 
-This is a part that I felt as though I had a lot of struggle with. 
+shop.gd (res://Scenes/HUD/Shop/shop.gd) plays a central role in the shop functionality, dealing with item display, interaction, shop layout, everything.
+
+Something that caught my eye was the const SETUPS, preloading the original vending_shop.
+![image](https://github.com/user-attachments/assets/301e6f30-fa83-4d36-95d9-ee9207f06b9d)
+
+As this was not what I wanted, I created a new file, mod_shop.gd and extended the original file. This aimed to change the preloading entry to the new brew_vending_shop.tscn I created earlier.
+![image](https://github.com/user-attachments/assets/e73193c1-3fa6-449d-a7ec-98c869d51c17)
+
+This is a part that I felt as though I had a lot of struggle with. Because while it seemed like shop.gd had a lot of structure to uphold, using Ctrl + Shift + F revealed that it was only referenced through this new mod_shop.gd and nowhere else. Which probably means it's more than likely in the signals, right?
+
+## So my next step that I'm asking for help on is how to update any existing paths with shop.gd with mod_shop.gd to make sure the new vending shop is being preloaded.
+
+That is, if I'm even doing this correctly.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -77,3 +102,4 @@ This is a part that I felt as though I had a lot of struggle with.
 
 # Outstanding issues
 
+Can't find a way to replace the original vending_shop with brew_vending_shop to appear in game.
